@@ -7,6 +7,12 @@
 
         <link rel="stylesheet" href="/node_modules/bootstrap-icons/font/bootstrap-icons.css">
         <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.css">
+        <style>
+            .form-element{
+                width: 100px;
+
+            }
+        </style>
 
     </head>
     <body>
@@ -14,26 +20,39 @@
         <div class="row">
             <div class="col">
                 <div class="input-group">
-                    Amount you need <input type="text" class="form-control">
+                    Amount you need <input type="text" id="txtAmountRange" class="form-element">
                     
                 </div>
     
             </div>
             <div class="col">
                 <div class="input-group">
-                    for<input type="text" class="form-control">year
+                    for<input type="text" id="txtYearRange" class="form-element">year
 
                 </div>
     
             </div>
             <div class="col">
                 <div class="input-group">
-                    Interest rate <input type="text" class="form-control">%
+                    Interest rate <input type="text" id="txtInterestRange" class="form-element">%
 
                 </div>
     
             </div>
+            <div class="row mt-4">
+                <div class="col">
+                    50,000<input type="range" id="amountRange" min="500000" max="40000000" value="50000">4000000
+                </div>
+                <div class="col">
+                    1<input type="range" id="yearRange" min="1" max="5">5
+                </div>
+                <div class="col">
+                    10.5%<input type="range" id="interestRange" min="10" max="21" step="0.5">21%
+                </div>
+
+            </div>
         </div>
+
 
     </body>
 </html>
