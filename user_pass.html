@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+    <head>
+        <link rel="stylesheet" href="/node_modules/bootstrap-icons/font/bootstrap-icons.css">
+        <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.css">
+        <script>
+            var users = [
+                {UserName : 'john', Password: 'john@123'},
+                {UserName : 'john_nit', Password:'john11'},
+                {UserName : 'john1',  Password: '12345'},
+                {UserName : 'john2', Password: 'david@11'}
+            ];
+            function VerifyUser(){
+                var username = document.getElementById("textName").value;
+                var password = document.getElementById("textPwd").value;
+                for(var user of users)
+                {
+                    if(user.UserName===username && user.Password===password)
+                    {
+                        document.write("<h2>Login Success</h2>");
+                    } else{
+                        document.getElementById("msg").innerHTML = "Invalid User Name or Password";
+                    }
+
+                }
+                
+            }
+        </script>
+    
+    </head>
+    <body>
+        <h2>Register User</h2>
+        <dl>
+            <dt>User Name</dt>
+            <dd><input type="text" id="textName"></dd>
+            <dt>Password</dt>            
+            <dd><input type="password" id="textPwd"></dd>
+        </dl>
+        <button onclick ="VerifyUser()" >Loging</button>
+        <h2 id="msg" class="text-center text-danger"></h2>
+    </body>
+</html>
