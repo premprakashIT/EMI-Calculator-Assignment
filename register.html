@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+    <head>
+        <link rel="stylesheet" href="/node_modules/bootstrap-icons/font/bootstrap-icons.css">
+        <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.css">
+        <script>
+            var users = [
+                {UserName : 'john'},
+                {UserName : 'john_nit'},
+                {UserName : 'john1'},
+                {UserName : 'john2'}
+            ];
+            function VerifyUser(){
+                var username = document.getElementById("textName").value;
+                var nameMsg = document.getElementById("nameMsg");
+                for(var user of users)
+                {
+                    if(user.UserName===username){
+                        nameMsg.innerHTML = "User Name Taken - Try Another";
+                        nameMsg.className = "text-danger";
+                        break;
+                        
+                    } else {
+                        nameMsg.innerHTML = "User Name Available";
+                        nameMsg.className = "text-success";
+
+                    }
+                }
+            }
+        </script>
+    
+    </head>
+    <body>
+        <h2>Register User</h2>
+        <dl>
+            <dt>User Name</dt>
+            <dd><input type="text" onkeyup="VerifyUser()" id="textName"></dd>
+            <dd id="nameMsg"></dd>
+            
+        </dl>
+    </body>
+</html>

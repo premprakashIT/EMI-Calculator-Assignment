@@ -13,6 +13,22 @@
 
             }
         </style>
+        <script>
+            function AmountChang(){
+                document.getElementById("txtAmount").value = document.getElementById("amountRange").value;
+            }
+
+            function CalculateClick(){
+                var p = parseInt(document.getElementById("txtAmount").value);
+                var r = parseInt(document.getElementById("txtRange").value);
+                var n = parseInt(document.getElementById("txtYear").value);
+                var EMI= "";
+
+            }
+            function UpdateAmount(){
+                document.getElementById("amountRange").value = document.getElementById("txtAmount").value;
+            }
+        </script>
 
     </head>
     <body>
@@ -20,34 +36,40 @@
         <div class="row">
             <div class="col">
                 <div class="input-group">
-                    Amount you need <input type="text" id="txtAmountRange" class="form-element">
+                    Amount you need <span class="input-group-text">&#8377;</span><input type="text" onchange="UpdateAmount()" step="50000" id="txtAmount" class="form-element">
                     
                 </div>
     
             </div>
             <div class="col">
                 <div class="input-group">
-                    for<input type="text" id="txtYearRange" class="form-element">year
+                    for<input type="text" id="txtYear" class="form-element">year
 
                 </div>
     
             </div>
             <div class="col">
                 <div class="input-group">
-                    Interest rate <input type="text" id="txtInterestRange" class="form-element">%
+                    Interest rate <input type="text" id="txtInterest" class="form-element">%
 
                 </div>
     
             </div>
             <div class="row mt-4">
                 <div class="col">
-                    50,000<input type="range" id="amountRange" min="500000" max="40000000" value="50000">4000000
+                    1000<input type="range" id="amountRange" onchange="AmountChang()" min="1000" max="10000" value="5000">10000
                 </div>
                 <div class="col">
                     1<input type="range" id="yearRange" min="1" max="5">5
                 </div>
                 <div class="col">
                     10.5%<input type="range" id="interestRange" min="10" max="21" step="0.5">21%
+                </div>
+
+            </div>
+            <div class="row mt-4">
+                <div class="col">
+                    <button onclick="CalculateClick()" class="btn btn-primary">Calculate</button>
                 </div>
 
             </div>
