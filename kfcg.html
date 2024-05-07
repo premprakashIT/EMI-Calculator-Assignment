@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>KFC Sweets House</title>
+    <link rel="stylesheet" href="/node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.css">
+    <style>
+        body {
+            background-color: brown;
+        }
+
+        /* Ensure the accordion header spans full width */
+        .accordion-header {
+            width: 100%;
+        }
+
+        /* Ensure the accordion button spans full width */
+        .accordion-button {
+            width: 100%;
+            text-align: left; /* Align text to the left */
+        }
+    </style>
+</head>
+
+<body class="container-fluid">
+    <header>
+        <img src="kfcphoto.PNG" width="100%" height="100">
+    </header>
+    <section>
+        <div class="accordion" id="kfcOrder">
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    <!-- Set button width to 100% -->
+                    <button class="btn btn-danger accordion-button" data-bs-toggle="collapse" data-bs-target="#customer">
+                        <h3>Customer Details</h3>
+                    </button>
+                </div>
+                <div class="accordion-body accordion-collapse collapse show" id="Customer" data-bs-parent="#kfcOrder">
+                    <dl>
+                        <dt>Customer Name</dt>
+                        <dd><input type="text" id="txtName" class="form-control"></dd>
+                        <dt>Mobile</dt>
+                        <dd><input type="text" id="txtMobile" class="form-control"> </dd>
+                    </dl>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="/node_modules/jquery/dist/jquery.js"></script>
+    <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+</body>
+
+</html>
