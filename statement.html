@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Statement</title>
+        <script>
+            var userdetails = {
+                    CardNumber: "1111222233338989",
+                    Cvv:"123",
+                    Expiry:"2024"
+
+            }
+            function PayClick(){
+                var card = document.getElementById("txtCard").value;
+                var cvv = document.getElementById("txtCvv").value;
+                var expiry = document.getElementById("txtExpiry").value;
+                var msg = document.getElementById("message");
+                // if(userdetails.CardNumber==card && userdetails.Cvv==cvv && userdetails.Expiry==expiry)
+                // {
+                //     document.write("Payment Successfull.")
+                // }else
+                // {
+                //     document.getElementById("msg").innerHTML="Invalid Details";
+                // }
+                if(userdetails.CardNumber==card)
+                {
+                    if(userdetails.Cvv==cvv){
+                        if(userdetails.Expiry==expiry){
+
+                            msg.innerHTML="Payment Successfull."
+                        }else{
+                            msg.innerHTML="Expiry Date is Wrong."
+                        }
+
+                    }else{
+                        msg.innerHTML="CVV Wrong";
+                    }
+
+                }else{
+                    msg.innerHTML="Invalid Card Number";
+                }
+                
+            }
+        </script>
+    </head>
+    <body>
+        <fieldset>
+            <legend>Payment Detail</legend>
+            <dl>
+                <dt>Card Number</dt>
+                <dd><input type="text" id="txtCard"></dd>
+                <dt>CV</dt>
+                <dd><input type="text" id="txtCvv"></dd>
+                <dt>Expiry Date</dt>
+                <dd>
+                    <select id="txtExpiry">
+                        <option>2023</option>
+                        <option>2024</option>
+                        <option>2025</option>
+                    </select>
+                </dd>
+            </dl>
+            <button onclick="PayClick()">Pay</button>
+        </fieldset>
+        <h2 id="message" align="center"></h2>
+
+    </body>
+</html>
