@@ -40,6 +40,31 @@
                 }
                 
             }
+            function VerifyCard(){
+                var card = document.getElementById("txtCard").value;
+                if(userdetails.CardNumber==card){
+                    document.getElementById("txtCvv").disabled=false;
+                }else{
+                    document.getElementById("txtCvv").disabled=true; 
+                }
+            }
+            function VerifyCvv(){
+                var cvv= document.getElementById("txtCvv").value;
+                if(userdetails.Cvv==cvv){
+                    document.getElementById("txtCvv").disabled=false;
+                }else{
+                    document.getElementById("txtCvv").disabled=true;
+                }
+            }
+            function VerifyExpiry(){
+                var expiry = document.getElementById("txtExpiry").value;
+                if(userdetails.Expiry==expiry){
+                    document.getElementById("btnPay").disabled=false;
+                }else{
+                    document.getElementById("btnPay").disabled=true;
+                }
+
+            }
         </script>
     </head>
     <body>
@@ -47,19 +72,19 @@
             <legend>Payment Detail</legend>
             <dl>
                 <dt>Card Number</dt>
-                <dd><input type="text" id="txtCard"></dd>
+                <dd><input type="text" id="txtCard" onkeyup="VerifyCard()"></dd>
                 <dt>CV</dt>
-                <dd><input type="text" id="txtCvv"></dd>
+                <dd><input type="text" id="txtCvv" onkeyup="VerifyCvv()" disabled></dd>
                 <dt>Expiry Date</dt>
                 <dd>
-                    <select id="txtExpiry">
+                    <select onchange="VerifyExpiry()" id="txtExpiry" disabled>
                         <option>2023</option>
                         <option>2024</option>
                         <option>2025</option>
                     </select>
                 </dd>
             </dl>
-            <button onclick="PayClick()">Pay</button>
+            <button onclick="PayClick()" disabled id="btnPay">Pay</button>
         </fieldset>
         <h2 id="message" align="center"></h2>
 

@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+<head>
+    <title>Statement</title>
+    <script>
+        var userdetails = {
+            CardNumber: "1111222233338989",
+            Cvv:"123",
+            Expiry:"2024"
+        }
+
+        function PayClick(){
+            var card = document.getElementById("txtCard").value;
+            var cvv = document.getElementById("txtCvv").value;
+            var expiry = document.getElementById("txtExpiry").value;
+            var msg = document.getElementById("message");
+
+            if(userdetails.CardNumber==card && userdetails.Cvv==cvv && userdetails.Expiry==expiry){
+                msg.innerHTML="Payment Successfull."
+                document.getElementById("btnPay").disabled = false;
+            } else {
+                msg.innerHTML="Invalid Details";
+                document.getElementById("btnPay").disabled = true;
+            }
+        }
+
+        function VerifyCard(){
+            var card = document.getElementById("txtCard").value;
+            if(card == userdetails.CardNumber){
+                document.getElementById("txtCvv").disabled = false;
+            } else {
+                document.getElementById("txtCvv").disabled = true; 
+            }
+        }
+
+        function VerifyCvv(){
+            var cvv = document.getElementById("txtCvv").value;
+            if(cvv == userdetails.Cvv){
+                document.getElementById("txtExpiry").disabled = false;
+            } else {
+                document.getElementById("txtExpiry").disabled = true;
+            }
+        }
+
+        function VerifyExpiry(){
+            var expiry = document.getElementById("txtExpiry").value;
+            if(expiry == userdetails.Expiry){
+                document.getElementById("btnPay").disabled = false;
+            } else {
+                document.getElementById("btnPay").disabled = true;
+            }
+        }
+    </script>
+</head>
+<body>
+    <fieldset>
+        <legend>Payment Detail</legend>
+        <dl>
+            <dt>Card Number</dt>
+            <dd><input type="text" id="txtCard" onkeyup="VerifyCard()"></dd>
+            <dt>CVV</dt>
+            <dd><input type="text" id="txtCvv" onkeyup="VerifyCvv()" disabled></dd>
+            <dt>Expiry Date</dt>
+            <dd>
+                <select onchange="VerifyExpiry()" id="txtExpiry" disabled>
+                    <option>2023</option>
+                    <option>2024</option>
+                    <option>2025</option>
+                </select>
+            </dd>
+        </dl>
+        <button onclick="PayClick()" disabled id="btnPay">Pay</button>
+    </fieldset>
+    <h2 id="message" align="center"></h2>
+
+</body>
+</html>
